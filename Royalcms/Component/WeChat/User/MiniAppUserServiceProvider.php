@@ -22,7 +22,7 @@ class MiniAppUserServiceProvider extends ServiceProvider
     {
         $wechat = $this->royalcms['wechat'];
         
-        $wechat->bindShared('mini_app_user', function($wechat)
+        $wechat->singleton('mini_app_user', function($wechat)
         {
             return new MiniAppUser($wechat['config']);
         });

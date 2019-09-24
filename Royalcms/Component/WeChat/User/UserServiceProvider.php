@@ -24,17 +24,17 @@ class UserServiceProvider extends ServiceProvider
     {
         $wechat = $this->royalcms['wechat'];
         
-        $wechat->bindShared('user', function($wechat)
+        $wechat->singleton('user', function($wechat)
         {
             return new User($wechat['access_token']);
         });
         
-        $wechat->bindShared('user_group', function($wechat)
+        $wechat->singleton('user_group', function($wechat)
         {
             return new Group($wechat['access_token']);
         });
         
-        $wechat->bindShared('user_tag', function($wechat)
+        $wechat->singleton('user_tag', function($wechat)
         {
             return new Tag($wechat['access_token']);
         });
